@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - keyFile: '/etc/certs/thiagobraga.local-key.pem'
+      certFile: '/etc/certs/thiagobraga.local.pem'
