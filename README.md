@@ -6,12 +6,12 @@ A shared Traefik instance for local development using Docker Compose and HTTPS.
 
 ## 1. Prerequisites
 
-1. [**Docker**](https://docs.docker.com/engine/install/ubuntu/)
-2. [**Docker Compose plugin**](https://docs.docker.com/compose/install/linux/)
-3. Ensure the `proxy` network exists:
-   ```bash
-   docker network create proxy 2>/dev/null || true
-   ```
+- [**Docker**](https://docs.docker.com/engine/install/ubuntu/)
+- [**Docker Compose plugin**](https://docs.docker.com/compose/install/linux/)
+- Ensure the `proxy` network exists:
+  ```bash
+  docker network create proxy 2>/dev/null || true
+  ```
 
 ## 2. Install `mkcert` locally
 
