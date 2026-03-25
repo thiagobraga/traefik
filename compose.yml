@@ -8,7 +8,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "127.0.0.1:8090:8080"
+      - "8090:8080"
     command:
       - "--api.dashboard=true"
       - "--api.insecure=true"
@@ -23,8 +23,15 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./dynamic:/etc/traefik/dynamic:ro
       - ./certs:/certs:ro
-    networks:
-      - proxy
+    networks: [proxy]
+
+  mkcert:
+    image: alpine/mkcert
+    container_name: mkcert
+    command: -cert-file /certs/local-cert.pem -key-file /certs/local-key.pem localhost 127.0.0.1 "*.local"
+    volumes:
+      - ./certs:/certs
+      - ~/.local/share/mkcert:/root/.local/share/mkcert
 
 networks:
   proxy:
