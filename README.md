@@ -53,6 +53,15 @@ docker run --rm \
   127.0.0.1 localhost "*.local"
 ```
 
+Or using docker compose:
+`compose.yml`
+```yaml
+mkcert:
+  image: alpine/mkcert
+  container_name: mkcert
+  command: -cert-file /certs/local-cert.pem -key-file /certs/local-key.pem localhost 127.0.0.1 "*.local"
+  volumes: [./certs:/certs, "${HOME}/.local/share/mkcert:/root/.local/share/mkcert"]
+```
 Note that by doing this, you need to add certificates to browsers manually.
 
 ## 4. Start Traefik
